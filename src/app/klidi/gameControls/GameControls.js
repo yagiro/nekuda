@@ -51,7 +51,7 @@ export default function GameControls() {
             />
             <Button
                 tabIndex={ -1 }
-                onClick={ stopper.toggle }
+                onClick={ () => stopper.toggle() }
             >
                 { stopper.active ? 'PAUSE' : 'START' }
             </Button>

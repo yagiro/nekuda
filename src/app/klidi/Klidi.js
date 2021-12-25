@@ -10,19 +10,34 @@ const text = 'Hi there. Start kliding bitchface.'
 
 function useKlidi() {
 
+    const ctx = gameCtxValue = useGameContextValue()
+
     const [ nextCharIdx, setNextCharIdx ] = useState(0)
     const nextChar = text.charAt(nextCharIdx)
 
     const handleKeyPress = event => {
+
+        // todo: handle only letters (ignore cmd,ctrl,alt,shift)
+
         if (event.key === nextChar) {
             setNextCharIdx(nextCharIdx => nextCharIdx + 1)
         }
         else if (event.key === 'Backspace') {
             setNextCharIdx(nextCharIdx => nextCharIdx - 1)
         }
+
+        if (!ctx.stopper.active) {
+            // start stopper on any key press
+            ctx.stopper.toggle()
+        }
+
+        if (nextCharIdx === text.length - 1) {
+            // game finished
+            ctx.stopper.toggle(false)
+        }
     }
 
-    useWindowEventListener('keydown', handleKeyPress, [ nextChar ])
+    useWindowEventListener('keydown', handleKeyPress, [ text, nextChar, ctx.stopper ])
 
     const completedText = text.substring(0, nextCharIdx)
     const textAfterNextChar = text.substring(nextCharIdx + 1, text.length)
@@ -31,6 +46,7 @@ function useKlidi() {
         completedText,
         nextChar,
         textAfterNextChar,
+        gameCtxValue,
     }
 }
 
@@ -40,9 +56,8 @@ export default function Klidi() {
         completedText,
         nextChar,
         textAfterNextChar,
+        gameCtxValue,
     } = useKlidi()
-
-    const gameCtxValue = useGameContextValue()
 
     return (
         <GameContextProvider value={ gameCtxValue }>

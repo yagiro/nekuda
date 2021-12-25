@@ -7,8 +7,8 @@ export const useGameContext = () => useContext(GameContext)
 function useStopper() {
     const [ active, setActive ] = useState(false)
 
-    const toggle = useCallback(() => {
-        setActive(stopperActive => !stopperActive)
+    const toggle = useCallback(givenValue => {
+        setActive(prevValue => givenValue ?? !prevValue)
     }, [ setActive ])
 
     return useMemo(() => {
