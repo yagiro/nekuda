@@ -1,15 +1,31 @@
-.main-text {
-    font-family: 'Patua One', cursive;
-    font-size: 2.5em;
-    letter-spacing: 0.1em;
-    word-spacing: 0.4em;
-    color: white;
-}
+.klidi {
 
-.completed-text {
-    background: #505050; // #a8ed93;
-}
+    max-width: 900px;
 
-.next-char {
-    background: #8b8b8b; // #fff179;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > :not(:first-child) {
+        margin-top: 100px;
+    }
+
+    .main-text {
+        font-family: 'Patua One', cursive;
+        font-size: 2.5em;
+        letter-spacing: 0.1em;
+        word-spacing: 0.4em;
+        color: white;
+        outline: none;
+        border: none;
+    }
+
+    .completed-text {
+        background: #505050; // #a8ed93;
+    }
+
+    .next-char {
+        background: #8b8b8b; // #fff179;
+    }
+
 }

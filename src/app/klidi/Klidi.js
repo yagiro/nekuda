@@ -2,8 +2,10 @@ import './Klidi.scss'
 
 import { useState } from 'react'
 import useWindowEventListener from '../../lib/useEventListener'
+import MainText from './mainText/MainText'
+import GameControls from './gameControls/GameControls'
 
-const text = 'hi from app. start kliding bitchface. this is a long text man.'
+const text = 'Hi there. Start kliding bitchface.'
 
 function useKlidi() {
 
@@ -37,10 +39,13 @@ export default function Klidi() {
     } = useKlidi()
 
     return (
-        <div className="main-text">
-            <span className="completed-text">{ completedText }</span>
-            <span className="next-char">{ nextChar }</span>
-            <span>{ textAfterNextChar }</span>
+        <div className="klidi">
+            <MainText
+                completedText={ completedText }
+                nextChar={ nextChar }
+                textAfterNextChar={ textAfterNextChar }
+            />
+            <GameControls />
         </div>
     )
 }
