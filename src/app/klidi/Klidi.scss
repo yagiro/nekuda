@@ -25,7 +25,10 @@
     }
 
     .next-char {
-        background: #8b8b8b; // #fff179;
+        background: #c2c2c2; // #fff179;
+        &.highlighted {
+            background: #8b8b8b; // #fff179;
+        }
     }
 
 }

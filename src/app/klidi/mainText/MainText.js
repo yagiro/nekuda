@@ -1,3 +1,5 @@
+import useNextCharHighlight from './useNextCharHighlight'
+
 export default function MainText(props) {
 
     const {
@@ -6,10 +8,12 @@ export default function MainText(props) {
         textAfterNextChar,
     } = props
 
+    const nextCharClass = useNextCharHighlight()
+
     return (
         <div className="main-text" tabIndex={ 0 }>
             <span className="completed-text">{ completedText }</span>
-            <span className="next-char">{ nextChar }</span>
+            <span className={ nextCharClass }>{ nextChar }</span>
             <span className="text-after-next-char">{ textAfterNextChar }</span>
         </div>
     )
