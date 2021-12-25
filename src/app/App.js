@@ -1,5 +1,10 @@
+import './App.scss'
+import Klidi from './klidi/Klidi'
+
 export default function App() {
     return (
-        <div>hi from app. start kliding bitchface.</div>
+        <div className="app">
+            <Klidi />
+        </div>
     )
 }
