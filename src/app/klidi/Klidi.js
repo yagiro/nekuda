@@ -4,6 +4,7 @@ import { useState } from 'react'
 import useWindowEventListener from '../../lib/useEventListener'
 import MainText from './mainText/MainText'
 import GameControls from './gameControls/GameControls'
+import { GameContextProvider, useGameContextValue } from './context/klidiContext'
 
 const text = 'Hi there. Start kliding bitchface.'
 
@@ -15,6 +16,9 @@ function useKlidi() {
     const handleKeyPress = event => {
         if (event.key === nextChar) {
             setNextCharIdx(nextCharIdx => nextCharIdx + 1)
+        }
+        else if (event.key === 'Backspace') {
+            setNextCharIdx(nextCharIdx => nextCharIdx - 1)
         }
     }
 
@@ -38,14 +42,18 @@ export default function Klidi() {
         textAfterNextChar,
     } = useKlidi()
 
+    const gameCtxValue = useGameContextValue()
+
     return (
-        <div className="klidi">
-            <MainText
-                completedText={ completedText }
-                nextChar={ nextChar }
-                textAfterNextChar={ textAfterNextChar }
-            />
-            <GameControls />
-        </div>
+        <GameContextProvider value={ gameCtxValue }>
+            <div className="klidi">
+                <MainText
+                    completedText={ completedText }
+                    nextChar={ nextChar }
+                    textAfterNextChar={ textAfterNextChar }
+                />
+                <GameControls />
+            </div>
+        </GameContextProvider>
     )
 }

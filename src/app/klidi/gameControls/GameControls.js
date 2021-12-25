@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useGameContext } from '../context/klidiContext'
 import './GameControls.scss'
 
 function Button(props) {
@@ -41,26 +42,18 @@ function Stopper({ active }) {
 
 export default function GameControls() {
 
-    const [ stopperActive, setStopperActive ] = useState(false)
-
-    const toggleStopper = () => {
-        setStopperActive(!stopperActive)
-        if (!stopperActive) {
-            console.debug('setting focus to main text')
-            document.querySelector('.main-text').focus()
-        }
-    }
+    const { stopper } = useGameContext()
 
     return (
         <div className="game-controls">
             <Stopper
-                active={ stopperActive }
+                active={ stopper.active }
             />
             <Button
                 tabIndex={ -1 }
-                onClick={ toggleStopper }
+                onClick={ stopper.toggle }
             >
-                { stopperActive ? 'PAUSE' : 'START' }
+                { stopper.active ? 'PAUSE' : 'START' }
             </Button>
         </div>
     )
