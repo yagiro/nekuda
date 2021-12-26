@@ -8,6 +8,14 @@ import { GameContextProvider, useGameContextValue } from './context/klidiContext
 
 const text = 'Hi there. Start kliding bitchface.'
 
+function isTypedCharacterEvent(event) {
+    return event.key.match(/^[a-zA-Z0-9 .,]$/)
+        && !event.altKey
+        && !event.ctrlKey
+        && !event.metaKey
+        && event.key !== 'Shift'
+}
+
 function useKlidi() {
 
     const ctx = gameCtxValue = useGameContextValue()
@@ -17,7 +25,7 @@ function useKlidi() {
 
     const handleKeyPress = event => {
 
-        // todo: handle only letters (ignore cmd,ctrl,alt,shift)
+        if (!isTypedCharacterEvent(event)) return
 
         if (event.key === nextChar) {
             setNextCharIdx(nextCharIdx => nextCharIdx + 1)
