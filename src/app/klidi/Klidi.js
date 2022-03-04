@@ -6,7 +6,7 @@ import MainText from './mainText/MainText'
 import GameControls from './gameControls/GameControls'
 import { GameContextProvider, useGameContextValue } from './context/klidiContext'
 
-const text = 'Hi there. Start kliding bitchface.'
+const text = 'Go ahead punk, make my day.'
 
 function isTypedCharacterEvent(event) {
     return event.key.match(/^[a-zA-Z0-9 .,]$/)

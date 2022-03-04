@@ -25,9 +25,9 @@
     }
 
     .next-char {
-        background: #c2c2c2; // #fff179;
+        border-radius: 2px;
         &.highlighted {
-            background: #8b8b8b; // #fff179;
+            background: #eba185; // #fff179;
         }
     }
 

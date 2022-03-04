@@ -13,7 +13,7 @@ export default function MainText(props) {
     return (
         <div className="main-text" tabIndex={ 0 }>
             <span className="completed-text">{ completedText }</span>
-            <span className={ nextCharClass }>{ nextChar }</span>
+            { !!nextChar && <span className={ nextCharClass }>{ nextChar }</span> }
             <span className="text-after-next-char">{ textAfterNextChar }</span>
         </div>
     )

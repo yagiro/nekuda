@@ -4,6 +4,12 @@ body {
     background: red;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .app {
     display: flex;
     flex-direction: column;
