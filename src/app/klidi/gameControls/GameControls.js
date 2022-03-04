@@ -28,6 +28,11 @@ function Stopper({ active }) {
                 intervalRef.current = null
             }
         }
+
+        return () => {
+            console.debug('stopper: clearing interval ' + intervalRef.current)
+            clearInterval(intervalRef.current)
+        }
     }, [ active ])
 
     const elapsedTime = (elapsedMs / 1000).toFixed(2)

@@ -6,11 +6,12 @@ export default function useNextCharHighlight() {
     const intervalRef = useRef()
 
     useEffect(() => {
-        setInterval(() => {
+        intervalRef.current = setInterval(() => {
             setHighlighted(highlighted => !highlighted)
         }, 700)
 
         return () => {
+            console.debug('clearing interval ' + intervalRef.current)
             clearInterval(intervalRef.current)
         }
     }, [ setHighlighted ])

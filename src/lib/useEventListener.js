@@ -8,6 +8,7 @@ export default function useWindowEventListener(eventName, handler, dependencies)
         window.addEventListener(eventName, handlerCallback)
 
         return () => {
+            console.debug('removing event listener for ' + eventName)
             window.removeEventListener(eventName, handlerCallback)
         }
         

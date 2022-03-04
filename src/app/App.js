@@ -1,10 +1,19 @@
+import { BrowserRouter } from 'react-router-dom'
 import './App.scss'
-import Klidi from './klidi/Klidi'
+import Nekuda from './nekuda/Nekuda'
 
-export default function App() {
+function App() {
     return (
         <div className="app">
-            <Klidi />
+            <Nekuda />
         </div>
+    )
+}
+
+export default function AppContainer() {
+    return (
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     )
 }
