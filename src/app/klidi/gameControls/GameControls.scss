@@ -4,6 +4,28 @@ $active-color: #ffe526;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    button {
+        background: transparent;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        font-size: 2.4em;
+        font-family: 'Knewave', cursive;
+        cursor: pointer;
+        outline: none;
+        border-radius: 4px;
+    
+        transition: background-color 300ms, color 400ms;
+    
+        &:active {
+            background: #ff735b;
+        }
+    
+        &:hover {
+            color: $active-color; //#faff06;
+        }
+    }
 }
 
 .stopper {
@@ -11,26 +33,4 @@ $active-color: #ffe526;
     font-size: 3.5em;
     margin: 70px;
     color: $active-color;
-}
-
-button {
-    background: transparent;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    font-size: 2.4em;
-    font-family: 'Knewave', cursive;
-    cursor: pointer;
-    outline: none;
-    border-radius: 4px;
-
-    transition: background-color 300ms, color 400ms;
-
-    &:active {
-        background: #ff735b;
-    }
-
-    &:hover {
-        color: $active-color; //#faff06;
-    }
 }

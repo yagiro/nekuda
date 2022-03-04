@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useGameContext } from '../context/klidiContext'
-import './GameControls.scss'
+import Button from '../../common/components/button/Button'
 
-function Button(props) {
-    return <button { ...props } />
-}
+import './GameControls.scss'
 
 function Stopper({ active }) {
 
